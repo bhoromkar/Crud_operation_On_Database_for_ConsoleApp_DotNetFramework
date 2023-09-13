@@ -1,0 +1,10 @@
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\bin\Debug\CRUD_Operation_On_DataBase.exe.config
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\bin\Debug\CRUD_Operation_On_DataBase.exe
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\bin\Debug\CRUD_Operation_On_DataBase.pdb
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\bin\Debug\System.Data.SqlClient.dll
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\bin\Debug\System.Data.SqlClient.xml
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\obj\Debug\CRUD_Operation_On_DataBase.csproj.AssemblyReference.cache
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\obj\Debug\CRUD_Operation_On_DataBase.csproj.CoreCompileInputs.cache
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\obj\Debug\CRUD_Operation_On_DataBase.csproj.CopyComplete
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\obj\Debug\CRUD_Operation_On_DataBase.exe
+C:\Users\adesh\source\repos\CRUD_Operation_On_DataBase\CRUD_Operation_On_DataBase\obj\Debug\CRUD_Operation_On_DataBase.pdb
