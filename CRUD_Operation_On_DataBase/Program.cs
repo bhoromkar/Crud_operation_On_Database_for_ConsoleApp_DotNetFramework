@@ -8,6 +8,8 @@ using System.Security.Principal;
 using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.Remoting.Messaging;
+using System.Reflection;
+using System.Linq.Expressions;
 
 namespace CRUD_Operation_On_DataBase
 {
@@ -20,18 +22,18 @@ namespace CRUD_Operation_On_DataBase
                             integrated security = sspi; 
                             Trusted_Connection = true";
             SqlConnection conn = new SqlConnection(info);
-       
-          /*insert_data(conn);
-            
-            
-            
-            getByAge(conn);
-            updatedata(conn);
-            errorcolumn(conn);
-          */
-            deletedata(conn);
-            
-           // display_table(conn);
+
+            /* insert_data(conn);
+               getByAge(conn);
+               updatedata(conn);
+               errorcolumn(conn);
+
+               deletedata(conn);
+               getDataFromUser(conn);
+              updateDataOfUser(conn);
+            */
+            deletedatafromuser(conn);
+            display_table(conn);
               
             
           
@@ -95,7 +97,7 @@ namespace CRUD_Operation_On_DataBase
                // Console.WriteLine("data deleted succesfully");
                 Console.WriteLine();
             }
-            catch (SqlException er)
+            catch (Exception er)
             {
                 Console.WriteLine("item deleted already! , "+ er.Message);
             }
@@ -104,9 +106,6 @@ namespace CRUD_Operation_On_DataBase
                 conn.Close();
 
             }
-
-
-
         }
 
         public static void updatedata(SqlConnection conn)
@@ -114,12 +113,12 @@ namespace CRUD_Operation_On_DataBase
             conn.Open();
             try
             {
-                SqlCommand updatedata = new SqlCommand("update from patient set age = '20' where PatientName='abc' ", conn);
+                SqlCommand updatedata = new SqlCommand("update patient set age = '20' where PatientName='abc' ", conn);
                 updatedata.ExecuteNonQuery();
                 Console.WriteLine("data updated succesfully");
 
             }
-            catch (SqlException er)
+            catch (Exception er)
             {
                 Console.WriteLine("The executable query is incorect, "+ er.Message);
             }
@@ -152,7 +151,8 @@ namespace CRUD_Operation_On_DataBase
         }
 
         
-          public static void display_table(SqlConnection conn) { 
+          public static void display_table(SqlConnection conn) 
+        { 
           conn.Open();
 
            SqlCommand cmd1 = new SqlCommand("select * from patient", conn);
@@ -177,6 +177,75 @@ namespace CRUD_Operation_On_DataBase
             conn.Close();
             Console.Read();
 
+        }
+
+        public static void getDataFromUser(SqlConnection conn)
+        {
+            conn.Open();
+            try
+            {
+                Console.WriteLine("enter the query");
+                string query = Console.ReadLine();
+                //insert into patient(PatientName, Age, Gender, PhoneNumber, PatientAddress, BloodGroup) values('uyegug', '52', 'female', '656461644', 'jnbd-f95', 'o+')
+                SqlCommand insertCommand = new SqlCommand(query, conn);
+                insertCommand.ExecuteNonQuery();
+                Console.WriteLine("query inserted successfully");
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine("please enter Correct query ," + er.Message);
+
+            }
+            finally {
+                conn.Close();
+                Console.Read();
+            } 
+        }
+        public static void updateDataOfUser(SqlConnection conn)
+        { 
+
+        conn.Open();
+            try
+            {
+                //update patient set age = '48' where PatientName='uyegug'
+                Console.WriteLine("enter data to update :");
+               string query = Console.ReadLine();
+                SqlCommand updateCommand = new SqlCommand(query, conn);
+                updateCommand.ExecuteNonQuery();
+                Console.WriteLine("query Updated SuccesFully");
+            }
+            catch (Exception er)
+            {
+               Console.WriteLine(er.Message);
+            }
+            finally {
+                conn.Close();
+                Console.Read();
+
+            }
+        }
+        public static void deletedatafromuser(SqlConnection conn)
+        {
+            conn.Open();
+            try
+            {
+                //delete from patient where PatientName='uyegug'
+                Console.WriteLine("enter data to delete :");
+                string query = Console.ReadLine();
+                SqlCommand deletecommand = new SqlCommand(query, conn);
+                deletecommand.ExecuteNonQuery();
+                Console.WriteLine("data deleted  SuccesFully");
+
+            }
+            catch (Exception e)
+            {
+
+                throw new InvalidOperationException(e.Message);
+            }
+            finally {
+                conn.Close();
+                Console.Read(); 
+            }
         }
     }
 }
